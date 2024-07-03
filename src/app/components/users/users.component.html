@@ -1,0 +1,26 @@
+<!-- <button class="btn btn-info" (click)="gotoProducts()">Products</button> -->
+
+<div class="row">
+    <div class="col-12">
+        <div class="text-right">
+            <button class="btn btn-info" routerLink="/users/adduser">Add User</button>
+        </div>
+    </div>
+    <div class="col-md-6 my-2">
+        <ul class="list-group" *ngIf="usersArr;else noUserData">
+            <li class="list-group-item" *ngFor="let user of usersArr" 
+            [routerLink]="[user.userId]"
+            [queryParams]="{userRole : user.userRole}"
+            (click)="seluserId = user.userId" 
+            [ngClass]="{active : user.userId === seluserId}">
+                {{user.userName}}
+            </li>
+        </ul>
+        <ng-template #noUserData>
+            <p class="alert alert-info">No User Data Available!!</p>
+        </ng-template>
+    </div>
+    <div class="col-md-6">
+        <router-outlet></router-outlet>
+    </div>
+</div>

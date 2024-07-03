@@ -1,0 +1,15 @@
+<div class="col-md-6 offset-2 mt-4">
+    <div class="card">
+        <div class="card-header">
+            <p>Product name :  <strong> {{prodObj.pName}}</strong></p>
+        </div>
+        <div class="card-body">
+            <p>Status : <strong>{{prodObj.pStatus}}</strong></p>
+        </div>
+        <div class="text-right">
+            <button class="btn btn-info" routerLink="edit"
+            [queryParamsHandling]="'preserve'">Edit Product</button>
+            <button class="btn btn-danger" (click)="onDeleteProduct(prodObj.pId)">Delete Product</button>
+        </div>
+    </div>
+</div>

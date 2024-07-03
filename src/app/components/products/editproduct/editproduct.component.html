@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-6 offset-2" >
+        <form [formGroup]="prodForm" (ngSubmit)="onProductAdd()">
+            <div class="form-group">
+                <label for="pName">Product Name </label>
+                <input type="text" id="pName" class="form-control"
+                formControlName="pName">
+            </div>
+            <div class="form-group">
+                <label for="pStatus">Product Status </label>
+                <select name="pStatus" id="pStatus" class="form-control"
+                formControlName="pStatus">
+                    <option value="Progress">Progress</option>
+                    <option value="Dispatched">Dispatched</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-info" type="submit"
+                *ngIf="!isEditMode">Add Product</button>
+                <button class="btn btn-info" type="button" (click)="onProductUpdate()"
+               *ngIf="isEditMode">Update Product</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<main class="main">
+    <div class="card auth-form">
+        <div class="card-title"><h4 class="bg-dark text-white p-3">User Sign Up Form</h4></div>
+        <div class="card-body">
+           <div *ngIf="userHasAccount">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" placeholder="Email"
+                    formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="password"
+                    formControlName="password">
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-outline-info">Log In</button>
+                </div>
+                <!-- <p class="p-2 m-0">
+                    <a href="#" (click)="userHasAccount = false">Dont have Account Yet?</a>
+                </p> -->
+               </form>
+           </div>
+           <!-- Sign Up FOrm -->
+           <div *ngIf="!userHasAccount">
+            <form [formGroup]="signUpForm" (ngSubmit)="onUserSignUp()">
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="text" class="form-control" placeholder="Email"
+                    formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Enter Password</label>
+                    <input type="password" class="form-control" placeholder="password"
+                    formControlName="password">
+                </div>
+                <div class="form-group">
+                    <label for="Cpassword">Confirm Password</label>
+                    <input type="Cpassword" class="form-control" placeholder="Confirm password"
+                    formControlName="Cpassword">
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-outline-info">Sign Up</button>
+                </div>
+                <!-- <p class="p-2 m-0">
+                    <a href="#" (click)="userHasAccount = true">Already have an Account?</a>
+                </p> -->
+                </form>
+        </div>
+        </div>
+        <p class="my-1">
+            <a href="#" (click)="userHasAccount = !userHasAccount"
+            class="btn btn-link">
+                {{userHasAccount ? 'Dont Have Account Yet' : 'Already Have Account!'}}
+            </a>
+        </p>
+    </div>
+</main>

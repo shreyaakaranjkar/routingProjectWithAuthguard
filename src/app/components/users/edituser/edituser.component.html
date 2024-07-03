@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-6">
+       <div class="card">
+        <div class="card-body">
+            <form [formGroup]="userForm" (ngSubmit)="onUserAdd()">
+                <div class="form-group">
+                    <label for="userName">User Name</label>
+                    <input type="text" id="userName" class="form-control" 
+                    formControlName="userName">
+                </div>
+                <div class="form-group">
+                    <label for="userRole">Select Role</label>
+                    <select  id="userRole" class="form-control"
+                    formControlName="userRole">
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="text-right">
+                        <button class="btn btn-info" type="button"
+                        (click)="updateUser()"  *ngIf="isEditMode">Update user</button>
+                        <button class="btn btn-info" type="submit"
+                        *ngIf="!isEditMode"
+                        >Add User</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+       </div>
+    </div>
+</div>

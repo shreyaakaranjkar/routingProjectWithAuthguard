@@ -1,0 +1,6 @@
+<p>
+    User Name is <strong>{{userObject.userName}}</strong>
+    User Id {{userObject.userId}}
+</p>
+<!-- <button class="btn btn-info" [routerLink]="['/users',userObject.userId,'edit']">Edit User</button> -->
+<button class="btn btn-info" (click)="editUser()">Edit User</button>
